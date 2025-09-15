@@ -45,7 +45,7 @@ while problems:
     if num_of_problems == 0:
         break
     user_choice = input("Would you like to quit or try another problem? (y/n): ")
-    if user_choice == "n":
+    elif user_choice == "n":
         break
 
 # when the while loop ends the program will display how many problems were answered correctly and the amount of problems answered
