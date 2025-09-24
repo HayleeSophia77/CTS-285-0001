@@ -8,7 +8,7 @@ Haylee Kaheel Teresa Aryan James
 """
 
 from AnswerChecker import run_math_quiz
-from memorybank import memory_bank
+from memorybank import memory_main
 from ElectroFlash import electro_flash
 
 def menu():
@@ -17,7 +17,7 @@ def menu():
     print("2) Memory Bank")
     print("3) Electro Flash")
     print("4) Exit")
-    print("=" * 30)
+    print("=" * 26)
 
 def main():
     choice = ""
@@ -29,8 +29,8 @@ def main():
             print("\n--- Starting Answer Checker ---\n")
             run_math_quiz()
         elif choice == "2":
-            print("\n--- Starting Memory Bank ---\n")
-            memory_bank()
+            
+            memory_main()
         elif choice == "3":
             print("\n--- Starting Electro Flash ---\n")
             electro_flash()
