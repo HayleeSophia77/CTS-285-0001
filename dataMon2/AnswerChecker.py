@@ -11,15 +11,18 @@ operators = {
 def check_answer(problem):
     try:
         equation, user_answer = problem.split('=')
-        for operator_symbol in operators.keys():
-            if operator_symbol in equation:
-                first_num, second_num = equation.split(operator_symbol)
-                first_num = float(first_num)
-                second_num = float(second_num)
-                break
-        else:
+        operator_symbol = None
+        first_num = second_num = None
+
+        matched = [(symbol, equation.split(symbol)) for symbol in operators if symbol in equation]
+
+        if not matched or len(matched[0][1]) != 2:
             print("Invalid equation format.")
             return False
+
+        operator_symbol, (left, right) = matched[0]
+        first_num = float(left)
+        second_num = float(right)
 
         operator_function = operators[operator_symbol]
         correct_answer = operator_function(first_num, second_num)
@@ -34,6 +37,7 @@ def check_answer(problem):
     except Exception as e:
         print(f"Error: {e}")
         return False
+
 
 def run_math_quiz():
     score = 0
